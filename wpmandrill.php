@@ -1261,8 +1261,12 @@ jQuery(document).bind( \'ready\', function() {
     	var hbounces= [{$bounces['recent']}];
     	var hopens 	= [{$opens['recent']}];
     	var huopens = [{$unopens['recent']}];
-    	
-		jQuery.plot(jQuery("#filtered_recent"),
+
+    	if( !jQuery("#filtered_recent").is(':visible') ) {
+    	  return;
+    	}
+
+		  jQuery.plot(jQuery("#filtered_recent"),
 	           [ { data: hbounces, label: "{$lit['bounced']}" },
 	             { data: hopens, label: "{$lit['opened']}" },
 	             { data: huopens, label: "{$lit['unopened']}" }],
